@@ -1,7 +1,7 @@
 #pragma once
 /*
-   @brief	: ¿øÇüÅ¥(´ë±â¿­ º»Ã¼)¿Í Å¥(¿¹¾àÀÚ ÀúÀå¸®½ºÆ®)¸¦ ÀÌ¿ëÇÑ ´ë±â¿­ ÇÁ·Î±×·¥
-   @author	: ±è¹ÎÀ½, ¹Ú¹Î±¤, ¹Ú¹Î¿ì, ÃÖ¼öºó
+   @brief	: ì›í˜•í(ëŒ€ê¸°ì—´ ë³¸ì²´)ì™€ í(ì˜ˆì•½ì ì €ì¥ë¦¬ìŠ¤íŠ¸)ë¥¼ ì´ìš©í•œ ëŒ€ê¸°ì—´ í”„ë¡œê·¸ë¨
+   @author	: ìë£Œêµ¬ì¡° 04íŒ€(ê¹€ë¯¼ìŒ, ë°•ë¯¼ê´‘, ë°•ë¯¼ìš°, ìµœìˆ˜ë¹ˆ)
    @date	: 2022_06_21_16:13
 */
 #include <stdio.h>
@@ -11,45 +11,45 @@
 #define _CRT_SECURE_NO_WARNINGS
 
 /**
- * @brief  :¿øÇü Å¥ °ü·Ã ¸ÅÅ©·Î.
+ * @brief  :ì›í˜• í ê´€ë ¨ ë§¤í¬ë¡œ.
  */
-//[G](12~16)¿øÇü Å¥ °ü·Ã ¸ÅÅ©·Î
+
 #define True 1
 #define False 0
 #define Error -1
-#define MaxQueSize 6 //[E][¼öÁ¤] Max_Size >> MaxQueSize
-//[W](14~18) person±¸Á¶Ã¼ ¹è¿­ °ü·Ã ¸ÅÅ©·Î
+#define MaxQueSize 6 
+
 /**
- * @brief	:person±¸Á¶Ã¼ ¹è¿­ °ü·Ã ¸ÅÅ©·Î
- * @details :ÀÌ¸§, ÀüÈ­¹øÈ£, È¸¿øµî±Ş, ¿¹¾àÀÚ ¼ö, Å×ÀÌºí¿¡ ³Ö¾îÁø µ¥ÀÌÅÍ ¼öÀÇ ÃÖ´ë°ªÀ» Á¤ÀÇ
- *			 userName, userPhone, userBirth, userName Å×ÀÌºí
- * @bug     :ÀüÈ­¹øÈ£ÀÇ ÀÚ¸®¼ö°¡ intÀÇ max(2147483647) ³ÑÀ½ >> ¹®ÀÚ¿­
+ * @brief	:personêµ¬ì¡°ì²´ ë°°ì—´ ê´€ë ¨ ë§¤í¬ë¡œ
+ * @details :ì´ë¦„, ì „í™”ë²ˆí˜¸, íšŒì›ë“±ê¸‰, ì˜ˆì•½ì ìˆ˜, í…Œì´ë¸”ì— ë„£ì–´ì§„ ë°ì´í„° ìˆ˜ì˜ ìµœëŒ€ê°’ì„ ì •ì˜
+ *			 userName, userPhone, userBirth, userName í…Œì´ë¸”
+ * @bug     :ì „í™”ë²ˆí˜¸ì˜ ìë¦¬ìˆ˜ê°€ intì˜ max(2147483647) ë„˜ìŒ >> ë¬¸ìì—´
  */
-#define MAX_NAME_LEN 10 //name MAXIMUM LENGTH 
-#define MAX_PHONENUMBER_LEN 12  //phone MAXIMUM LENGTH
-#define MAX_GRADE_LEN 10 //grade MAXIMUM LENGTH
-#define MaxComfirmNum 200 //[E][Ãß°¡] ÃÖ´ë ¿¹¾àÀÚ¼ö
-#define DataNum 5 //[E][Ãß°¡] Å×ÀÌºí¿¡ ³Ö¾îÁø µ¥ÀÌÅÍ ¼ö
+#define MAX_NAME_LEN 10 
+#define MAX_PHONENUMBER_LEN 12  
+#define MAX_GRADE_LEN 10 
+#define MaxComfirmNum 200 
+#define DataNum 5 
 
 
  /**
-  * @brief	:person±¸Á¶Ã¼ Á¤ÀÇ
-  * @details :Circle_Queue.hÀÇ ±âÁ¸ struct element °ú struct person ÅëÇÕ
-  * @todo    :birthÁ¤ÀÇ ¼öÁ¤(Á¤¼öÇü ¹è¿­ ÇÊ¿äx)
+  * @brief	:personêµ¬ì¡°ì²´ ì •ì˜
+  * @details :Circle_Queue.hì˜ ê¸°ì¡´ struct element ê³¼ struct person í†µí•©
+  * @todo    :birthì •ì˜ ìˆ˜ì •(ì •ìˆ˜í˜• ë°°ì—´ í•„ìš”x)
   */
-typedef struct person { //DEFINE STRUCT(person) //[G,W][¿øº»][E][¼öÁ¤] Circle_Queue.hÀÇ ±âÁ¸ struct element °ú struct person ÅëÇÕ
+typedef struct person {
 	int id;
 	char name[MAX_NAME_LEN];
-	int birth; //[E][¼öÁ¤] Á¤¼ö¹è¿­ ºÒÇÊ¿ä
-	char phone[MAX_PHONENUMBER_LEN]; //[E][¼öÁ¤] pn >> phone
+	int birth; 
+	char phone[MAX_PHONENUMBER_LEN];
 	char grade[MAX_GRADE_LEN];
 }person;
 
 /**
- * @brief	:°¢ À¯ÀúÁ¤º¸ Å×ÀÌºí¿¡ ÀÖ´Â °ªÀ» person[i]ÀÇ °¢ ¿ø¼Ò¿¡ ´ëÀÔÇÏ´Â ÇÔ¼ö
+ * @brief	:ê° ìœ ì €ì •ë³´ í…Œì´ë¸”ì— ìˆëŠ” ê°’ì„ person[i]ì˜ ê° ì›ì†Œì— ëŒ€ì…í•˜ëŠ” í•¨ìˆ˜
  */
 
-void SetUserData(person* p, int id, char name[DataNum], int birth[DataNum], char phone[DataNum], char grade[DataNum]) { //[E][Ãß°¡] °¢ À¯ÀúÁ¤º¸ Å×ÀÌºí¿¡ ÀÖ´Â °ªÀ» person[i]ÀÇ °¢ ¿ø¼Ò¿¡ ´ëÀÔÇÏ´Â ÇÔ¼ö
+void SetUserData(person* p, int id, char name[DataNum], int birth[DataNum], char phone[DataNum], char grade[DataNum]) { 
 	for (int i = 0; i < DataNum; i++)
 	{
 		p[i].id = i;
@@ -61,21 +61,21 @@ void SetUserData(person* p, int id, char name[DataNum], int birth[DataNum], char
 }
 
 /**
- * @brief	:charÇü ¹è¿­ ÃÊ±âÈ­ ÇÔ¼ö.
+ * @brief	:charí˜• ë°°ì—´ ì´ˆê¸°í™” í•¨ìˆ˜.
  */
 void InitCharArray(char arr[]) { for (int i = 0; i < strlen(arr); i++) arr[i] = 0; }
 
 /**
- * @brief	:charÇü ¹è¿­¿¡ charÇü ¹è¿­ÀÇ °ªÀ» ´ëÀÔÇÏ´Â ÇÔ¼ö, arr1(°ª ¹ŞÀ½), arr2(°ª Àü´Ş)
+ * @brief	:charí˜• ë°°ì—´ì— charí˜• ë°°ì—´ì˜ ê°’ì„ ëŒ€ì…í•˜ëŠ” í•¨ìˆ˜, arr1(ê°’ ë°›ìŒ), arr2(ê°’ ì „ë‹¬)
  */
 void CollegeCharArray(char arr1[], char arr2[])
 {
-	/*if (strlen(arr1) == strlen(arr2)) //µÎ ¹è¿­ÀÇ »çÀÌÁî°¡ ´Ù¸¦ ¶§
+	/*if (strlen(arr1) == strlen(arr2)) //ë‘ ë°°ì—´ì˜ ì‚¬ì´ì¦ˆê°€ ë‹¤ë¥¼ ë•Œ
 		for (int i = 0; i < strlen(arr2); i++) arr1[i] = arr2[i];
 	else
 	{
 		if (strlen(arr1) < strlen(arr2)) {
-			//[¿äÃ»] ÀÌ ÁÙ¿¡ arr1ÀÇ ¹è¿­ÀÇ ±æÀÌ¸¦ arr2Size·Î ¹Ù²ã ÀçÁ¤ÀÇ ÇÏ±â
+			//[ìš”ì²­] ì´ ì¤„ì— arr1ì˜ ë°°ì—´ì˜ ê¸¸ì´ë¥¼ arr2Sizeë¡œ ë°”ê¿” ì¬ì •ì˜ í•˜ê¸°
 			for (int i = 0; i < strlen(arr1); i++) arr1[i] = 0;
 			for (int i = 0; i < strlen(arr2); i++) arr1[i] = arr2[i];
 		}
@@ -89,8 +89,8 @@ void CollegeCharArray(char arr1[], char arr2[])
 }
 
 /**
- * @brief	:ARRAY EXCEPTION CODE CHECK NUMBER,SPECIAL ALPHA(¹è¿­ ¿¹¿ÜÃ³¸®)
- * @details	:¹®ÀÚ¿­¿¡ ¼ıÀÚ, Æ¯¼ö¹®ÀÚ°¡ µé¾îÀÖ´ÂÁö È®ÀÎ.ASCIIÄÚµå ¹üÀ§ ¼³Á¤
+ * @brief	:ARRAY EXCEPTION CODE CHECK NUMBER,SPECIAL ALPHA(ë°°ì—´ ì˜ˆì™¸ì²˜ë¦¬)
+ * @details	:ë¬¸ìì—´ì— ìˆ«ì, íŠ¹ìˆ˜ë¬¸ìê°€ ë“¤ì–´ìˆëŠ”ì§€ í™•ì¸.ASCIIì½”ë“œ ë²”ìœ„ ì„¤ì •
  */
 int isStringCheck(char* s) {
 	size_t size = strlen(s);
@@ -110,7 +110,7 @@ int isStringCheck(char* s) {
 
 /**
  * @brief	:EXCEPTION CODE CHECK ALPHA,SPECIAL ALPHA
- * @details	:¹®ÀÚ, Æ¯¼ö¹®ÀÚ°¡ µé¾îÀÖ´ÂÁö È®ÀÎ.ASCIIÄÚµå ¹üÀ§ ¼³Á¤
+ * @details	:ë¬¸ì, íŠ¹ìˆ˜ë¬¸ìê°€ ë“¤ì–´ìˆëŠ”ì§€ í™•ì¸.ASCIIì½”ë“œ ë²”ìœ„ ì„¤ì •
  */
 int isStringCheck1(char* s) {
 	size_t size = strlen(s);
@@ -128,12 +128,12 @@ int isStringCheck1(char* s) {
 }
 
 /**
- * @brief   :CircleQueue °ü·Ã ÄÚµå.
+ * @brief   :CircleQueue ê´€ë ¨ ì½”ë“œ.
  */
 int cur_size = 0;
 /**
- * @brief   :Queue±¸Á¶Ã¼ Á¤ÀÇ .
- * @todo    :insert_Queue¿¡ ÀÎÀÚ Ãß°¡
+ * @brief   :Queueêµ¬ì¡°ì²´ ì •ì˜ .
+ * @todo    :insert_Queueì— ì¸ì ì¶”ê°€
  */
 typedef struct circlequeue {
 	int rear;
@@ -142,7 +142,7 @@ typedef struct circlequeue {
 }Queue;
 
 void init_Queue(Queue* q);
-void insert_Queue(Queue* q, int id, char name[MAX_NAME_LEN], int birth, char phone[MAX_PHONENUMBER_LEN], char grade[MAX_GRADE_LEN]); //[E][¼öÁ¤] ÀÎÀÚ Ãß°¡
+void insert_Queue(Queue* q, int id, char name[MAX_NAME_LEN], int birth, char phone[MAX_PHONENUMBER_LEN], char grade[MAX_GRADE_LEN]); 
 person delete_Queue(Queue* q);
 bool is_full(Queue* q);
 bool is_empty(Queue* q);
@@ -155,19 +155,19 @@ void init_Queue(Queue* q)
 	q->data = (person*)malloc(sizeof(person) * MaxQueSize);
 }
 /**
- * @todo	:(q->data[q->rear].name, name) charÇü ¹è¿­ ´ëÀÔ ÇÔ¼ö È£Ãâ
+ * @todo	:(q->data[q->rear].name, name) charí˜• ë°°ì—´ ëŒ€ì… í•¨ìˆ˜ í˜¸ì¶œ
  */
 void insert_Queue(Queue* q, int id, char name[MAX_NAME_LEN], int birth, char phone[MAX_PHONENUMBER_LEN], char grade[MAX_GRADE_LEN])
 {
 	if (is_full(q)) {
-		printf("´ë±â¿­ÀÌ ´Ù Ã¡½À´Ï´Ù.\n");
+		printf("ëŒ€ê¸°ì—´ì´ ë‹¤ ì°¼ìŠµë‹ˆë‹¤.\n");
 		return;
 	}
 	else
 	{
-		q->rear = (q->rear + 1) % (MaxQueSize); //front+1ÀÌ ÃÖ´ñ°ªÀÌ¸é 0À¸·Î µ¹¾Æ°¡¶ó
+		q->rear = (q->rear + 1) % (MaxQueSize); 
 		q->data[q->rear].id = id;
-		CollegeCharArray(q->data[q->rear].name, name); //[E][¼öÁ¤] charÇü ¹è¿­ ´ëÀÔ ÇÔ¼ö È£Ãâ
+		CollegeCharArray(q->data[q->rear].name, name); 
 		q->data[q->rear].birth = birth;
 		CollegeCharArray(q->data[q->rear].phone, phone);
 		CollegeCharArray(q->data[q->rear].grade, grade);
@@ -180,7 +180,7 @@ person delete_Queue(Queue* q)
 {
 	if (is_empty(q))
 	{
-		printf("´ë±â¿­ÀÌ ºñ¾ú½À´Ï´Ù.\n");
+		printf("ëŒ€ê¸°ì—´ì´ ë¹„ì—ˆìŠµë‹ˆë‹¤.\n");
 	}
 	q->front = (q->front + 1) % (MaxQueSize);
 	return q->data[q->front];
@@ -202,12 +202,12 @@ bool is_full(Queue* q)
 		return False;
 }
 /**
- * @todo	:void del_data ÀÎÀÚ Ãß°¡, (q->data[i].name) charÇü ¹è¿­ ÃÊ±âÈ­ ÇÔ¼ö(InitCharArray) È£Ãâ,
- *			 (q->data[target].name, q->data[i].name) charÇü ¹è¿­ ´ëÀÔ ÇÔ¼ö(CollegeCharArray) È£Ãâ
+ * @todo	:void del_data ì¸ì ì¶”ê°€, (q->data[i].name) charí˜• ë°°ì—´ ì´ˆê¸°í™” í•¨ìˆ˜(InitCharArray) í˜¸ì¶œ,
+ *			 (q->data[target].name, q->data[i].name) charí˜• ë°°ì—´ ëŒ€ì… í•¨ìˆ˜(CollegeCharArray) í˜¸ì¶œ
  */
-void del_data(Queue* q, int del_id, char del_name[MAX_NAME_LEN], int del_birth, char del_phone[MAX_PHONENUMBER_LEN], char del_grade[MAX_GRADE_LEN]) //[E][¼öÁ¤] ÀÎÀÚ Ãß°¡
+void del_data(Queue* q, int del_id, char del_name[MAX_NAME_LEN], int del_birth, char del_phone[MAX_PHONENUMBER_LEN], char del_grade[MAX_GRADE_LEN]) 
 {
-	printf("»èÁ¦µÈ id: %d\n", del_id);
+	printf("ì‚­ì œëœ id: %d\n", del_id);
 	int cnt = 0;
 	for (int i = q->front; i <= q->rear; i = (i + 1) % MaxQueSize)
 	{
@@ -218,7 +218,7 @@ void del_data(Queue* q, int del_id, char del_name[MAX_NAME_LEN], int del_birth, 
 			&& strcmp(q->data[i].grade, del_grade) == 0)
 		{
 			q->data[i].id = 0;
-			InitCharArray(q->data[i].name); //[E][¼öÁ¤] charÇü ¹è¿­ ÃÊ±âÈ­ ÇÔ¼ö È£Ãâ
+			InitCharArray(q->data[i].name); 
 			q->data[i].birth = 0;
 			InitCharArray(q->data[i].phone);
 			InitCharArray(q->data[i].grade);
@@ -230,13 +230,13 @@ void del_data(Queue* q, int del_id, char del_name[MAX_NAME_LEN], int del_birth, 
 			if (target < 0)
 				target += MaxQueSize;
 			q->data[target].id = q->data[i].id;
-			CollegeCharArray(q->data[target].name, q->data[i].name); //[E][¼öÁ¤] charÇü ¹è¿­ ´ëÀÔ ÇÔ¼ö È£Ãâ
+			CollegeCharArray(q->data[target].name, q->data[i].name); 
 			q->data[target].birth = q->data[i].birth;
 			CollegeCharArray(q->data[target].phone, q->data[i].phone);
 			CollegeCharArray(q->data[target].grade, q->data[i].grade);
 
 			q->data[i].id = 0;
-			InitCharArray(q->data[i].name); //[E][¼öÁ¤] charÇü ¹è¿­ ÃÊ±âÈ­ ÇÔ¼ö È£Ãâ
+			InitCharArray(q->data[i].name); 
 			q->data[i].birth = 0;
 			InitCharArray(q->data[i].phone);
 			InitCharArray(q->data[i].grade);
@@ -248,17 +248,17 @@ void Queue_print(Queue q)
 {
 	int i = q.front;
 	if (is_empty(&q)) {
-		printf("´ë±â¿­ÀÌ ºñ¾îÀÖ½À´Ï´Ù.\n");
+		printf("ëŒ€ê¸°ì—´ì´ ë¹„ì–´ìˆìŠµë‹ˆë‹¤.\n");
 		return;
 	}
 
 	do {
 		i = (i + 1) % MaxQueSize;
-		printf("´ë±âÀÚ id : %d   ||", q.data[i].id);
-		printf("   ´ë±âÀÚ ÀÌ¸§ : %s", q.data[i].name); //[E][Ãß°¡](222~225)°¢ charÇü ¹è¿­, intÇü º¯¼ö Ãâ·Â 
-		printf("   ||   ´ë±âÀÚ »ı³â¿ùÀÏ : %d", q.data[i].birth);
-		printf("   ||   ´ë±âÀÚ ¿¬¶ôÃ³ : %s", q.data[i].phone);
-		printf("   ||   ´ë±âÀÚ µî±Ş : %s", q.data[i].grade);
+		printf("ëŒ€ê¸°ì id : %d   ||", q.data[i].id);
+		printf("   ëŒ€ê¸°ì ì´ë¦„ : %s", q.data[i].name); 
+		printf("   ||   ëŒ€ê¸°ì ìƒë…„ì›”ì¼ : %d", q.data[i].birth);
+		printf("   ||   ëŒ€ê¸°ì ì—°ë½ì²˜ : %s", q.data[i].phone);
+		printf("   ||   ëŒ€ê¸°ì ë“±ê¸‰ : %s", q.data[i].grade);
 		printf("   ||   (rear : % d)\n", q.rear);
 		printf("\n\n");
 		if (i == q.rear)
